@@ -25,9 +25,14 @@ public class GSM {
 	//metoda ne raboti, shte se opitam da go opravq v git
 	void call(GSM receiver, int duration){
 		//if (duration > 0 && !receiver.simMobileNumber.equals(simMobileNumber) && hasSimCard && receiver.hasSimCard){
-//			receiver.lastIncomingCall = caller;
-			lastOutgoingCall.caller = receiver;
-			outgoingCallsDuration += duration;
+			Call newCall = new Call();
+			newCall.duration = duration;
+			newCall.caller = ;
+			newCall.receiver = receiver;
+			lastOutgoingCall = newCall;
+			//receiver.lastIncomingCall = caller;
+//			outgoingCallsDuration += duration;
+//			lastOutgoingCall = receiver.simMobileNumber;
 		//}
 	}
 	
