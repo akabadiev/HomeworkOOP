@@ -24,16 +24,20 @@ public class GSM {
 	
 	//metoda ne raboti, shte se opitam da go opravq v git
 	void call(GSM receiver, int duration){
-		//if (duration > 0 && !receiver.simMobileNumber.equals(simMobileNumber) && hasSimCard && receiver.hasSimCard){
+		    if (duration > 0 && !(receiver.simMobileNumber.equals(simMobileNumber)) && hasSimCard && receiver.hasSimCard){
+		    	
 			Call newCall = new Call();
 			newCall.duration = duration;
-			newCall.caller = ;
+			newCall.caller = this;
 			newCall.receiver = receiver;
 			lastOutgoingCall = newCall;
-			//receiver.lastIncomingCall = caller;
-//			outgoingCallsDuration += duration;
-//			lastOutgoingCall = receiver.simMobileNumber;
-		//}
+			outgoingCallsDuration += duration;
+			
+			receiver.lastIncomingCall = newCall;
+		    } else {
+		    	System.out.println("Problem!");
+		    	return;
+		    }
 	}
 	
 	static void getSumForCall(){
@@ -42,14 +46,21 @@ public class GSM {
 	
 	void printInfoForTheLastOutgoingCall(){
 		if (lastOutgoingCall!=null) {
-			System.out.println(lastIncomingCall);
+			System.out.println("Vreme na razgovor: " + lastOutgoingCall.duration);
+			System.out.println("Ti se obadi na nomer: " + lastOutgoingCall.receiver.simMobileNumber);
+			//System.out.println(lastOutgoingCall.caller.simMobileNumber);
+		} else {
+			System.out.println("Nqma takova povikvane");
 		}
 		
 	}
 	
 	void printInfoForTheLastIncomingCall(){
-		if (lastOutgoingCall!=null) {
-			System.out.println(lastOutgoingCall);
+		if (lastIncomingCall!=null) {
+			System.out.println("Vreme na razgovor: " + lastIncomingCall.duration);
+			System.out.println("Obadil se e nomer: " + lastIncomingCall.caller.simMobileNumber);
+		} else {
+			System.out.println("Nqma takova povikvane");
 		}
 		
 	}
