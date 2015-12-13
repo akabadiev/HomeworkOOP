@@ -1,7 +1,7 @@
 
 public class Call {
 	
-	public static double  priceForAMinute = 3;
+	public static double  priceForAMinute = 2;
 	
 	GSM caller; 
 	GSM receiver;

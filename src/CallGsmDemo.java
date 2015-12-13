@@ -6,26 +6,24 @@ public class CallGsmDemo {
 		GSM gosho = new GSM();
 		GSM pesho = new GSM();
 		
-		gosho.insertSimCard("081234567g");
-		pesho.insertSimCard("081234567p");
+		gosho.insertSimCard("0812345678");
+		pesho.insertSimCard("0812345679");
 		
 		gosho.call(pesho, 3);
+		//pesho.call(gosho, 4);
 		gosho.call(pesho, 7);
-		pesho.call(gosho, 4);
+		
 		System.out.println("Gosho e govoril: " + gosho.outgoingCallsDuration + " minuti");
 		gosho.printInfoForTheLastOutgoingCall();
+		gosho.printInfoForTheLastIncomingCall();
+		System.out.println();
 		System.out.println("Pesho e govoril: " + pesho.outgoingCallsDuration + " minuti");
+		pesho.printInfoForTheLastOutgoingCall();
+		pesho.printInfoForTheLastIncomingCall();
 		
 
-		//pesho.getSumForCall();
+		pesho.getSumForCall();
+		gosho.getSumForCall();
 	}
 
 }
-/*
-Call newCall = new Call();
-newCall.duration = 5;
-newCall.caller = gosho;
-newCall.receiver = pesho;
-gosho.lastOutgoingCall = newCall;
-System.out.println(gosho.lastOutgoingCall.duration);
-*/
